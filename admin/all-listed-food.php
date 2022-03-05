@@ -58,12 +58,12 @@ if (strlen($_SESSION['pgasaid']==0)) {
         <thead>
           <tr>
             <th data-breakpoints="xs">S.NO</th>
-            <th>Food Id</th>
+            <th>Food Item</th>
             <th>Register By</th>
             <th>Register Mobile Number</th>
-            <th>Contact Person Number</th>
+            <th>Contact Person</th>
             <th>Contact Person Mobile Number</th>
-            <th>Food Items</th>
+            <!-- <th>Food Items</th> -->
             <th>Request Date</th>
             <th data-breakpoints="xs">Action</th>
            
@@ -80,12 +80,13 @@ while ($row=mysqli_fetch_array($ret)) {
         <tbody>
           <tr data-expanded="true">
             <td><?php echo $cnt;?></td>
-              <td><?php  echo $row['foodId'];?></td>
+            <td><?php  echo $row['FoodItems'];?></td>
+              <!-- <td><?php  echo $row['foodId'];?></td> -->
                   <td><?php  echo $row['FullName'];?></td>
                   <td><?php  echo $row['MobileNumber'];?></td>
                   <td><?php  echo $row['ContactPerson'];?></td>
                   <td><?php  echo $row['CPMobNumber'];?></td>
-                  <td><?php  echo $row['FoodItems'];?></td>
+                  <!-- <td><?php  echo $row['FoodItems'];?></td> -->
                   <td><?php  echo $row['CreationDate'];?></td>
              
                   <td><a href="food-details.php?viewid=<?php echo $row['ID'];?>">View Details</a></td>

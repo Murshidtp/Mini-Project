@@ -58,13 +58,13 @@ Rejected Requests
         <thead>
           <tr>
             <th data-breakpoints="xs">S.NO</th>
-            <th>Request Id</th>
+            <!-- <th>Request Id</th> -->
             <th>Request By</th>
             <th>Requester Mobile Number</th>
             <th>Food Item</th>
             <th>Request Date</th>
             <th>Status</th>
-            <th data-breakpoints="xs">Action</th>
+            <!-- <th data-breakpoints="xs">Action</th> -->
            
            
           </tr>
@@ -85,7 +85,7 @@ while ($row=mysqli_fetch_array($ret)) {
         
           <tr data-expanded="true">
             <td><?php echo $cnt;?></td>
-              <td><?php  echo $row['requestNumber'];?></td>
+              <!-- <td><?php  echo $row['requestNumber'];?></td> -->
                   <td><?php  echo $row['fullName'];?></td>
                   <td><?php  echo $row['mobileNumber'];?></td>
                   <td><?php  echo $row['FoodItems'];?></td>
@@ -95,7 +95,7 @@ while ($row=mysqli_fetch_array($ret)) {
                      <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                      <?php } else { ?>
                       <td><?php  echo $row['status'];?></td><?php } ?>
-                  <td><a href="view-requestdetails.php?frid=<?php echo $row['frid'];?>">View Details</a></td>
+                  <!-- <td><a href="view-requestdetails.php?frid=<?php echo $row['frid'];?>">View Details</a></td> -->
                 </tr>
                 <?php 
 $cnt=$cnt+1;

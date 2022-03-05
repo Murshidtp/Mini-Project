@@ -33,9 +33,13 @@ if(isset($_POST['submit']))
 // $foodpic=md5($pic.time).$extension;
 //      move_uploaded_file($_FILES["images"]["tmp_name"],"images/".$foodpic);
 
+$now = new DateTime();
+$today= $now->format('Y-m-d H:i:s');    // MySQL datetime format
+ 
 //Getting post values
 $fitem=$_POST["fitem"]; 
 $fitemarray=implode(",",$fitem);
+if($pdate>=$today)
     $query=mysqli_query($con, "insert into tblfood(DonorID,foodId,StateName, CityName, FoodItems, Description, PickupDate,PickupAddress,ContactPerson,CPMobNumber) value('$donorid','$fid','$statename','$cityname','$fitemarray','$description','$pdate','$padd','$contactperson','$cpmobnum')");
 
     if ($query) {
@@ -45,7 +49,9 @@ echo "<script type='text/javascript'> document.location = 'add-food-details.php'
   else
     {
      echo "<script>alert('Something went wrong. Please try again.');</script>";
+     echo "<script type='text/javascript'> document.location = 'add-food-details.php'; </script>";
     }
+
 
 }
 
@@ -53,6 +59,7 @@ echo "<script type='text/javascript'> document.location = 'add-food-details.php'
 <!DOCTYPE html>
 <head>
 <title>Re Food Share | Add Food Detail </title>
+
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
@@ -214,9 +221,11 @@ $('#row'+button_id+'').remove();
 
         <!-- page end-->
         </div>
+       
 </section>
  <!-- footer -->
-		  <?php include_once('includes/footer.php');?>
+		  <?php include_once('includes/footer.php');
+          ?>
   <!-- / footer -->
 </section>
 

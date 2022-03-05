@@ -74,7 +74,7 @@ echo "<script>alert('Something went wrong. Please try again.');</script>";
             <th>Contact Person</th>
             <th> Mobile Number</th>
             <th>State Name</th>
-            <th>City Name</th>
+            <th>District</th>
             <th>Listing Date</th>
             <th data-breakpoints="xs">Action</th>
            

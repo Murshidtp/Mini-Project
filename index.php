@@ -6,7 +6,7 @@ include('includes/dbconnection.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title>Re Food Share |||Home Page</title>
+<title>Re Food Share || Home Page</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -64,22 +64,17 @@ include('includes/dbconnection.php');
 					<li>
 						<div class="banner-info">
 							<h3>WE NEED YOUR SUPPORT</h3>
-							<p>Sed ut perspiciatis unde omnis iste natus
-							error sit voluptatem accusantium doloremque 
-							laudantium, totam rem aperiam, eaque ipsa quae 
-							ab illo inventore veritatis et quasi architecto 
-							beatae vitae dicta sunt</p>
+							<p>Giving is not just
+								about make a donation,it's about making a diffrence
+							</p>
+	
 							<a href="about.php" class="hvr-rectangle-out button">READ MORE</a>
 						</div>
 						<div class="clearfix"></div>					</li>
 					<li>
 						<div class="banner-info">
 							<h3>HELP TURN TEARS TO SURES </h3>
-							<p>Sed ut perspiciatis unde omnis iste natus
-							error sit voluptatem accusantium doloremque 
-							laudantium, totam rem aperiam, eaque ipsa quae 
-							ab illo inventore veritatis et quasi architecto 
-							beatae vitae dicta sunt </p>
+							<p>If you want happiness for a year, inherit a fortune. If you want happiness for a lifetime, help someone else </p>
 							<a href="about.php" class="hvr-rectangle-out button">READ MORE</a>
 						</div>
 						<div class="clearfix"></div>

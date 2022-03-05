@@ -71,7 +71,7 @@ $statecounts=mysqli_num_rows($query1);
 $citycounts=mysqli_num_rows($query2);
 ?>
 					<div class="col-md-8 market-update-left">
-					<h4><a href="manage-city.php" style="color: white">Total City</a></h4>
+					<h4><a href="manage-city.php" style="color: white">Total Districts</a></h4>
 						<h3><?php echo $citycounts;?></h3>
 						
 					</div>

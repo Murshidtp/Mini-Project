@@ -2,14 +2,18 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+
+     
+
 //Code for food request
 if(isset($_POST['submit'])){
 $foodid=$_GET['foodid'];
 $fname=$_POST['name'];
 $mnumber=$_POST['contactno'];
-$msg=$_POST['message'];
+$qty=$_POST['quantity'];
+$msg=$_POST['message']; 
 $reqnumber=mt_rand(100000000,999999999);
-$query=mysqli_query($con,"insert into tblfoodrequests(foodId,fullName,mobileNumber,message,requestNumber) values('$foodid','$fname','$mnumber','$msg','$reqnumber')");
+$query=mysqli_query($con,"insert into tblfoodrequests(foodId,fullName,mobileNumber,Quantity, message,requestNumber) values('$foodid','$fname','$mnumber','$qty', '$msg','$reqnumber')");
     echo '<script>alert("Request Successfully Sent. Your request number is  "+"'.$reqnumber.'");</script>';
 echo "<script type='text/javascript'> document.location = 'food-available.php'; </script>";
 
@@ -58,7 +62,7 @@ echo "<script type='text/javascript'> document.location = 'food-available.php'; 
 	 <div class="container">
 	  <?php
 $vid=$_GET['foodid'];   
-$ret=mysqli_query($con,"select tblfoodrequests.requestNumber,tblfoodrequests.requestDate,tblfoodrequests.mobileNumber,tblfoodrequests.message,tblfoodrequests.status,tblfoodrequests.donorRemark,tblfoodrequests.requestCompletionDate,tblfoodrequests.fullName,
+$ret=mysqli_query($con,"select tblfoodrequests.requestNumber,tblfoodrequests.requestDate,tblfoodrequests.mobileNumber,tblfoodrequests.Quantity,tblfoodrequests.message,tblfoodrequests.status,tblfoodrequests.donorRemark,tblfoodrequests.requestCompletionDate,tblfoodrequests.fullName,
 tblfood.ID,tblfood.foodId,tblfood.ContactPerson,tblfood.CPMobNumber,tblfood.CreationDate,tblfood.FoodItems,tblfood.StateName,tblfood.CityName,tblfood.Description,tblfood.PickupDate,tblfood.PickupAddress,tblfood.Image,tblfood.UpdationDate,tbldonor.FullName,tbldonor.MobileNumber,tbldonor.Email from 
 tblfood 
 left join tblfoodrequests  on tblfood.ID=tblfoodrequests.foodId
@@ -102,13 +106,15 @@ while ($row=mysqli_fetch_array($ret)) {
   </tr>
 
 <tr>
-    <th>State Name</th>
-    <td><?php echo $row['StateName']; ?></td>
+    <th>District</th>
+    <td><?php echo $row['CityName']; ?></td>
 
-<th>District</th>
-<td>
-<?php echo $row['CityName']; ?>
-  </td>
+    <th>Status</th>
+    <td> <?php  
+if($row['status']==""){
+echo "Not Confirmed Yet";
+}else{echo $row['status'];}
+;?></td>
   </tr>
   <tr>
 <!-- <th>Description</th>
@@ -116,17 +122,7 @@ while ($row=mysqli_fetch_array($ret)) {
 <?php echo $row['Description']; ?>
   </td> -->
 
-<th>Pick Up Date</th>
-<td>
-<?php echo $row['PickupDate']; ?>
-  </td>
-  <th>Status</th>
-    <td> <?php  
-if($row['status']==""){
-echo "Not Confirmed Yet";
-}else{echo $row['status'];}
-;?></td>
-  </tr>
+
 
   <!-- <tr>
 <th>Image</th>
@@ -135,11 +131,12 @@ echo "Not Confirmed Yet";
   </td>  
   </tr> -->
   <?php if($row['status']==""){ ?>
-  <tr>
+  <!-- <tr>
   	<td colspan="4"><center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Request Food</button></center></td>
-  </tr>
+  </tr> -->
 <?php }  ?>
   </table><?php } ?>
+  <?php include_once("includes/submit.php");?>
 
             
           </div>
@@ -161,6 +158,15 @@ echo "Not Confirmed Yet";
 </div>
 
 <!-- Modal -->
+
+<?php
+$vid=$_GET['foodid']; 
+$ret=mysqli_query($con,"select Description from  tblfood where  tblfood.ID='$vid' ");
+$cnt=1;
+while ($row=mysqli_fetch_array($ret)) {
+
+?>
+
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -174,7 +180,8 @@ echo "Not Confirmed Yet";
       <div class="modal-body">
         <p><input type="text" class="form-control" name="name" placeholder="Full Name" required></p>
         <p style="margin-top:1%"><input type="text" class="form-control" name="contactno" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 numeric characters only"  required></p>
-        <p style="margin-top:1%"><textarea name="message" class="form-control" placeholder="Delivery Address"></textarea></p>
+        <p style="margin-top:1%"><input type="number" class="form-control" name="quantity" max="<?php echo $row['Description']; ?>" placeholder="Enter Quantity upto <?php echo $row['Description']; ?> " required></p> 
+        <p style="margin-top:1%"><textarea name="message" class="form-control" placeholder="Address"></textarea></p>
         <p style="margin-top:2%"> <button type="submit" name="submit" class="btn btn-primary" >Submit</button></p>
       </div>
       </form>
@@ -185,6 +192,9 @@ echo "Not Confirmed Yet";
 
   </div>
 </div>
+
+<?php 
+}?>
 
 
 <!-- //typo-page -->

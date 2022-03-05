@@ -88,7 +88,7 @@ $sdata=$_POST['searchdata'];
        <thead>
           <tr>
             <th data-breakpoints="xs">S.NO</th>
-            <th>Request Id</th>
+            <!-- <th>Request Id</th> -->
             <th>Request By</th>
             <th>Requester Mobile Number</th>
             <th>Food Item</th>
@@ -115,7 +115,7 @@ while ($row=mysqli_fetch_array($ret)) {
         
           <tr data-expanded="true">
             <td><?php echo $cnt;?></td>
-              <td><?php  echo $row['requestNumber'];?></td>
+              <!-- <td><?php  echo $row['requestNumber'];?></td> -->
                   <td><?php  echo $row['fullName'];?></td>
                   <td><?php  echo $row['mobileNumber'];?></td>
                   <td><?php  echo $row['FoodItems'];?></td>

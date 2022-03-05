@@ -67,7 +67,7 @@ $fcounts=mysqli_num_rows($query);
 			<?php 
 					$query=mysqli_query($con,"select tblfoodrequests.id from tblfoodrequests
  join tblfood  on tblfood.ID=tblfoodrequests.foodId 
- where tblfood.DonorID='$donarid' and (tblfoodrequests.status='Food Take Away/ Request Completed')");
+ where tblfood.DonorID='$donarid' and (tblfoodrequests.status='Request Accepted')");
 $completed=mysqli_num_rows($query);
 ?>
 			<div class="col-md-4 market-update-gd">
@@ -76,7 +76,7 @@ $completed=mysqli_num_rows($query);
 						<i class="fa fa-file fa-3x" ></i>
 					</div>
 					<div class="col-md-8 market-update-left">
-					<a href="completed-requests.php" style="color:#fff;"><h5>Food Take Away/ Request Completed </h5></a>
+					<a href="completed-requests.php" style="color:#fff;"><h4>Request Completed </h4></a>
 						<h3><?php echo $completed;?></h3>
 					</div>
 				  <div class="clearfix"> </div>

@@ -15,10 +15,10 @@
 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
-                        <span>List Your Food Detail</span>
+                        <span>Donate Food Now</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="add-food-details.php">Add Food</a></li>
+                        <li><a href="add-food-details.php">Donate Food</a></li>
                         <li><a href="manage-food-details.php">Manage Food</a></li>
                     </ul>
                 </li>

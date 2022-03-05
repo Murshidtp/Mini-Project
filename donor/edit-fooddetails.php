@@ -14,6 +14,7 @@ if(isset($_POST['submit']))
     $statename=$_POST['state'];
     $cityname=$_POST['city'];
     $description=$_POST['description'];
+    $descr=$description-10;
     $pdate=$_POST['pdate'];
     $padd=$_POST['address'];
     $contactperson=$_POST['contactperson'];

@@ -133,7 +133,7 @@ echo $row['status'];}
 </tr>
 
 <tr>
-<th> Delivery Address</th>
+<th>Address</th>
 <td><?php echo $row['message']; ?></td>
 <th>Request Date</th>
 <td><?php echo $row['requestDate']; ?></td>

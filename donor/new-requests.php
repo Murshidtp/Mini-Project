@@ -58,10 +58,11 @@ if (strlen($_SESSION['pgasoid']==0)) {
         <thead>
           <tr>
             <th data-breakpoints="xs">S.NO</th>
-            <th>Request Id</th>
+            <!-- <th>Request Id</th> -->
             <th>Request By</th>
             <th>Requester Mobile Number</th>
             <th>Food Item</th>
+            <!-- <th>Requested Quantity</th> -->
             <th>Request Date</th>
             <th>Status</th>
             <th data-breakpoints="xs">Action</th>
@@ -84,10 +85,11 @@ while ($row=mysqli_fetch_array($ret)) {
         
           <tr data-expanded="true">
             <td><?php echo $cnt;?></td>
-              <td><?php  echo $row['requestNumber'];?></td>
+              <!-- <td><?php  echo $row['requestNumber'];?></td> -->
                   <td><?php  echo $row['fullName'];?></td>
                   <td><?php  echo $row['mobileNumber'];?></td>
                   <td><?php  echo $row['FoodItems'];?></td>
+                  <!-- <td><?php  echo $row['Quantity'];?></td> -->
                   <td><?php  echo $row['requestDate'];?></td>
                    <?php if($row['status']==""){ ?>
 

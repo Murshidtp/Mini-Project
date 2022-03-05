@@ -8,6 +8,7 @@ if(isset($_POST['submit']))
     $fname=$_POST['name'];
     $mobno=$_POST['mobilnumber'];
     $email=$_POST['email'];
+    $district=$_POST['district'];
     $password=md5($_POST['password']);
 
     $ret=mysqli_query($con, "select Email from tbldonor where Email='$email'");
@@ -16,7 +17,7 @@ if(isset($_POST['submit']))
 $msg="This email or Contact Number already associated with another account";
     }
     else{
-    $query=mysqli_query($con, "insert into tbldonor(FullName, MobileNumber, Email,  Password) value('$fname', '$mobno', '$email', '$password' )");
+    $query=mysqli_query($con, "insert into tbldonor(FullName, MobileNumber, Email, District, Password) value('$fname', '$mobno', '$email', '$district', '$password' )");
     if ($query) {
     $msg="You have successfully registered";
   }
@@ -73,7 +74,8 @@ return true;
 		<form action="#" method="post">
 			<input type="text" class="ggg" name="name" placeholder="NAME" required="true">
 			<input type="email" class="ggg" name="email" placeholder="E-MAIL" required="true">
-			<input type="text" class="ggg" name="mobilnumber" placeholder="PHONE" required="true" maxlength="10" pattern="[0-9]+">
+			<input type="text" class="ggg" name="mobilnumber" placeholder="PHONE" required="true" maxlength="10" minlength="10" pattern="[789][0-9]{9}">
+      <input type="text" class="ggg" name="district" placeholder="DISTRICT" required="true">
 			<input type="password" class="ggg" name="password" placeholder="PASSWORD" required="true">
 			<input type="password" class="ggg" name="repeatpassword" placeholder="REPEAT PASSWORD" required="true">
 			<h4><input type="checkbox"  required="true" />I agree to the Terms of Service and Privacy Policy</h4>

@@ -58,13 +58,13 @@ if (strlen($_SESSION['pgasaid']==0)) {
         <thead>
           <tr>
             <th data-breakpoints="xs">S.NO</th>
-            <th>Request Id</th>
+            <!-- <th>Request Id</th> -->
             <th>Request By</th>
             <th>Requester Mobile Number</th>
             <th>Food Item</th>
             <th>Request Date</th>
             <th>Status</th>
-            <th data-breakpoints="xs">Action</th>
+            <!-- <th data-breakpoints="xs">Action</th> -->
            
            
           </tr>
@@ -74,7 +74,7 @@ if (strlen($_SESSION['pgasaid']==0)) {
 $ret=mysqli_query($con,"select tblfoodrequests.id as frid,tblfood.ID as foodid,tblfood.FoodItems,tblfoodrequests.requestNumber,tblfoodrequests.fullName,tblfoodrequests.mobileNumber,tblfoodrequests.message,tblfoodrequests.requestDate,tblfoodrequests.status from
 tblfoodrequests
  join tblfood  on tblfood.ID=tblfoodrequests.foodId 
- where (tblfoodrequests.status='Food Take Away/ Request Completed')");
+ where (tblfoodrequests.status='Request Accepted')");
 $cnt=1;
 $count=mysqli_num_rows($ret);
 if($count>0){
@@ -84,7 +84,7 @@ while ($row=mysqli_fetch_array($ret)) {
         
           <tr data-expanded="true">
             <td><?php echo $cnt;?></td>
-              <td><?php  echo $row['requestNumber'];?></td>
+              <!-- <td><?php  echo $row['requestNumber'];?></td> -->
                   <td><?php  echo $row['fullName'];?></td>
                   <td><?php  echo $row['mobileNumber'];?></td>
                   <td><?php  echo $row['FoodItems'];?></td>
@@ -94,7 +94,7 @@ while ($row=mysqli_fetch_array($ret)) {
                      <td class="font-w600"><?php echo "Not Updated Yet"; ?></td>
                      <?php } else { ?>
                       <td><?php  echo $row['status'];?></td><?php } ?>
-                  <td><a href="view-requestdetails.php?frid=<?php echo $row['frid'];?>">View Details</a></td>
+                  <!-- <td><a href="view-requestdetails.php?frid=<?php echo $row['frid'];?>">View Details</a></td> -->
                 </tr>
                 <?php 
 $cnt=$cnt+1;
